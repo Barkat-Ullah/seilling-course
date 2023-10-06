@@ -1,0 +1,81 @@
+[
+    {
+      "_id": "0282e0e58a5c404fbd15261f11c2ab6a",
+      "paragraph":"Absolute Beginner Cooking course",
+      "author": {
+        "name": "Dane kock",
+        "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+      },
+      "category_id": "1",
+      "description": "Exciting cooking news involving international cuisine.",
+      "image": "https://i.ibb.co/1QtkTpp/UJYT73-740x540.jpg",
+      "title": "Cooking"
+      , "price": "Free"
+    },
+    {
+      "_id": "1a2b3c4d5e6f",
+      "paragraph":"Web Design Training with Elementor",
+      "author": {
+        "name": "Jimmy Dane",
+        "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+      },
+      "category_id": "2",
+      "description": "Innovative web designing techniques for modern websites.",
+      "image": "https://i.ibb.co/9pQ4gTN/VAR94-740x540.jpg",
+      "title": "Web Designing",
+      "price": "80 $"
+    },
+    {
+      "_id": "6g7h8i9j0k1l",
+      "paragraph":"Basic level Youth And Cooking",
+      "author": {
+        "name": "Jennifer Wood",
+        "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+      },
+      "category_id": "3",
+      "description": "SpaceX's historic Mars mission with a crewed capsule journey.",
+      "image": "https://i.ibb.co/8XyV1Vc/FOO634-740x540.jpg",
+      "title": "Cooking"
+      , "price": "30 $"
+    },
+    {
+      "_id": "m1n2o3p4q5r6",
+      "paragraph":"Drawing and Painting Course for children",
+      "author": {
+        "name": "Mark Wood",
+        "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+      },
+      "category_id": "4",
+      "description": "Latest updates on global efforts to combat climate change.",
+      "image": "https://i.ibb.co/zHFN2j5/BIRR267-740x540.jpg",
+      "title": "Life Style"
+      , "price": "Free"
+    },
+    {
+      "_id": "s6t7u8v9w0x1y",
+      "paragraph":"Wordpress Beginner",
+      "author": {
+        "name": "Mac Way",
+        "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+      },
+      "category_id": "5",
+      "description": "Exciting developments in the world of finance and tech giants.",
+      "image": "https://i.ibb.co/v4xRcQL/BLP08-740x540.jpg",
+      "title": "Finance"
+      , "price": "30 $"
+    },
+    {
+      "_id": "z1a2b3c4d5e6",
+      "paragraph":"Complete Digital Marketing With Course",
+      "author": {
+        "name": "Abu Sayed",
+        "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+      },
+      "category_id": "6",
+      "description": "Promising breakthroughs in medical research for rare diseases.",
+      "image": "https://i.ibb.co/5YxLv0P/PRO833-740x540.jpg",
+      "title": "Business",
+      "price": "30 $"
+    }
+  ]
+  

@@ -1,10 +1,9 @@
-// import {bannerImg} from '../../assets/banner.jpg'
 
 
 const Banner = () => {
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200 rounded-xl">
+      <div className="hero min-h-screen bg-base-200 rounded-b-xl">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="">
           <img
