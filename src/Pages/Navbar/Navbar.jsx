@@ -84,7 +84,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <div className="text-[#3bbca7]">
+          <div className="text-[#43b7a4]">
           <svg
             width="50"
             height="50"
@@ -99,12 +99,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="flex gap-5">{links}</ul>
+          <ul className="flex gap-5 text-xl font-medium text-slate-700">{links}</ul>
         </div>
         <div className="navbar-end">
-            {/* <Link to="/login">
-            <button className="btn btn-success text-yellow-50">Login</button>
-            </Link> */}
+           
         {
           user ? 
           <button onClick={handleSignOut} className="btn btn-success text-yellow-50">Logout</button>
