@@ -22,7 +22,7 @@ const [courses, setCourses] = useState([]);
   return (
     <div>
       <div className="mt-10 mb-10">
-        <h2 className="text-center text-5xl font-bold">
+        <h2 className="text-center text-2xl lg:text-5xl font-bold">
           Top Related <span className="text-[#3BB]">Learning Tutorials</span>
         </h2>
 

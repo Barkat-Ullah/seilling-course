@@ -8,6 +8,7 @@ import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Contact from "../Pages/Contact/Contact";
 import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PrivateRouter from "./PrivateRouter/PrivateRouter";
 
 
 const router = createBrowserRouter([
@@ -36,12 +37,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'/course/:id',
-                element:<CourseDetails></CourseDetails>,
+                element:<PrivateRouter><CourseDetails></CourseDetails></PrivateRouter>,
                 loader:()=>fetch('/courses.json')
             },
             {
                 path:'/contact',
-                element:<Contact></Contact>
+                element:<PrivateRouter><Contact></Contact></PrivateRouter>
             },
             {
                 path:'/blog',

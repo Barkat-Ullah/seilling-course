@@ -14,9 +14,8 @@ const Course = ({course}) => {
     console.log(course);
     const {_id, author, image, title ,price ,description, paragraph } = course
     return (
-        <div  data-aos="fade-right"
-        data-aos-offset="500"
-        data-aos-easing="ease-in-sine" >
+        <div  data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom" >
          <div className="mt-10 overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200">
             <figure>
               <img

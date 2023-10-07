@@ -12,7 +12,7 @@ const Banner = () => {
           />
           </div>
           <div>
-            <h1 className="text-5xl font-bold text-slate-700">A learning platform that 
+            <h1 className="text-2xl lg:text-5xl font-bold text-slate-700">A learning platform that 
             <br />
             <span className="text-[#3bbCA7]">helps you to learning </span>faster</h1>
             <p className="py-6">

@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [reError, setReError] = useState('')
+  const [success, setSuccess] = useState('')
+  const [show, setShow] = useState(false)
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -14,12 +18,25 @@ const Register = () => {
     const password = form.get("password");
     console.log(name, email, password);
 
+    if (password.length < 6) {
+      setReError('Password should be at least 6 characters or longer');
+    } else if (!/[A-Z]/.test(password)) {
+      setReError('Password should contain at least one capital letter');
+    } else if (!/[@#$%^&+=!]/.test(password)) {
+      setReError('Password should contain at least one special character');
+    }
+
+    setReError('')
+    setSuccess('')
+
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        setSuccess('Your account was registered!')
       })
       .catch((error) => {
         console.log(error);
+        setReError('Login failed. Please check your Email.')
       });
   };
 
@@ -31,11 +48,26 @@ const Register = () => {
             <div className="flex items-center justify-center mt-6">
               <a
                 href="#"
-                className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white"
+                className="w-1/3 pb-4 mb-3 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white"
               >
                 sign up
               </a>
             </div>
+
+            {
+          reError &&
+          <div className="alert alert-error text-slate-600">
+            <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>Error! {reError}</span>
+          </div>
+        }
+        {
+          success && 
+            <div className="alert alert-success">
+              <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span>{success}</span>
+            </div>
+        }
 
             <div className="relative flex items-center mt-8">
               <span className="absolute">
@@ -110,12 +142,17 @@ const Register = () => {
               </span>
 
               <input
-                type="password"
+                type={ show ? "text":"password"}
                 name="password"
                 required
                 className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-[#3BB] dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 placeholder="Password"
               />
+              <span onClick={()=>setShow(!show) } className="absolute right-2">
+                {
+                  show ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                }
+              </span>
             </div>
 
             <div className="mt-6">
@@ -132,7 +169,13 @@ const Register = () => {
                 </p>
               </div>
             </div>
+         
+
+
           </form>
+
+
+
         </div>
       </div>
     </div>

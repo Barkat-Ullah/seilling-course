@@ -1,50 +1,31 @@
-<section  className="text-gray-600 body-font">
-  <div  className="container px-5 py-24 mx-auto">
-    <div  className="flex flex-col text-center w-full mb-20">
-      <h1  className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Master Cleanse Reliac Heirloom</h1>
-      <p  className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+{/* <div   classNameName="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+    <div   classNameName="flex items-center justify-center w-12 bg-red-500">
+        <svg   classNameName="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z" />
+        </svg>
     </div>
-    <div  className="flex flex-wrap -m-4 text-center">
-      <div  className="p-4 md:w-1/4 sm:w-1/2 w-full">
-        <div  className="border-2 border-gray-200 px-4 py-6 rounded-lg">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  className="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-            <path d="M8 17l4 4 4-4m-4-5v9"></path>
-            <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
-          </svg>
-          <h2  className="title-font font-medium text-3xl text-gray-900">2.7K</h2>
-          <p  className="leading-relaxed">Downloads</p>
+
+    <div   classNameName="px-4 py-2 -mx-3">
+        <div   classNameName="mx-3">
+            <span   classNameName="font-semibold text-red-500 dark:text-red-400">Error</span>
+            <p   classNameName="text-sm text-gray-600 dark:text-gray-200">
+               {reError}
+            </p>
         </div>
-      </div>
-      <div  className="p-4 md:w-1/4 sm:w-1/2 w-full">
-        <div  className="border-2 border-gray-200 px-4 py-6 rounded-lg">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  className="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
-          </svg>
-          <h2  className="title-font font-medium text-3xl text-gray-900">1.3K</h2>
-          <p  className="leading-relaxed">Users</p>
-        </div>
-      </div>
-      <div  className="p-4 md:w-1/4 sm:w-1/2 w-full">
-        <div  className="border-2 border-gray-200 px-4 py-6 rounded-lg">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  className="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-            <path d="M3 18v-6a9 9 0 0118 0v6"></path>
-            <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
-          </svg>
-          <h2  className="title-font font-medium text-3xl text-gray-900">74</h2>
-          <p  className="leading-relaxed">Files</p>
-        </div>
-      </div>
-      <div  className="p-4 md:w-1/4 sm:w-1/2 w-full">
-        <div  className="border-2 border-gray-200 px-4 py-6 rounded-lg">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  className="text-indigo-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
-          <h2  className="title-font font-medium text-3xl text-gray-900">46</h2>
-          <p  className="leading-relaxed">Places</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+</div> */}
+
+<div  className="flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+    <div  className="flex items-center justify-center w-12 bg-emerald-500">
+        <svg  className="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+        </svg>
+    </div>
+
+    <div  className="px-4 py-2 -mx-3">
+        <div  className="mx-3">
+            <span  className="font-semibold text-emerald-500 dark:text-emerald-400">Success</span>
+            <p className="text-sm text-gray-600 dark:text-gray-200">{success}</p>
+        </div>
+    </div>
+</div>
