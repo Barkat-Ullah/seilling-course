@@ -1,17 +1,25 @@
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Banner = () => {
+
+  useEffect(()=>{
+    AOS.init();
+  },[])
+
+
   return (
-    <div>
+    <div className="">
       <div className="hero min-h-screen bg-slate-50 rounded-b-xl ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="">
           <img
             src= "https://i.ibb.co/k4rFsqd/banner.jpg"
-            className=" max-w-sm rounded-lg  w-[600px] h-[400px] "
+            className=" rounded-lg  w-full h-[400px] "
           />
           </div>
-          <div>
+          <div  data-aos="zoom-in-right">
             <h1 className="text-2xl lg:text-5xl font-bold text-slate-700">A learning platform that 
             <br />
             <span className="text-[#3bbCA7]">helps you to learning </span>faster</h1>

@@ -1,10 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext)
+    const [loggedIn, setLoggedIn] = useState('')
+
+    useEffect(() => {
+     
+      if (user) {
+        setLoggedIn(user);
+      } else {
+        setLoggedIn(null);
+      }
+    }, [user]);
 
     const handleSignOut = () => {
         logOut()
@@ -102,12 +112,20 @@ const Navbar = () => {
           <ul className="flex gap-5 text-xl font-medium text-slate-700">{links}</ul>
         </div>
         <div className="navbar-end">
+
+       {loggedIn && <div className=" mr-6 ">
+           <img className="w-12 rounded-full " src= {loggedIn.photoURL
+              } /> 
+           <h2>{loggedIn.displayName}</h2>
+        </div>
+     
+       }
            
         {
           user ? 
           <button onClick={handleSignOut} className="btn btn-success text-yellow-50">Logout</button>
           :
-
+         
           <Link to="/login" className="btn btn-success text-yellow-50">Login</Link>
 
         }

@@ -12,6 +12,7 @@ const Login = () => {
    
     const navigate = useNavigate()
     const [show, setShow] = useState(false)
+    
 
     const [reError, setReError] = useState('')
     const [success, setSuccess] = useState('')
@@ -29,6 +30,7 @@ const Login = () => {
         signIn(email, password)
         .then(result => {
             console.log(result.user);
+            
             setSuccess('Your account is login successfully')
             navigate(location?.state ? location.state : '/')
         })
