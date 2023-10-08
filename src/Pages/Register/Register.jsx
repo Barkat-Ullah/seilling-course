@@ -16,14 +16,17 @@ const Register = () => {
     const name = form.get("name");
     const email = form.get("email");
     const password = form.get("password");
+    console.log("Password:", password);
     console.log(name, email, password);
 
     if (password.length < 6) {
       setReError('Password should be at least 6 characters or longer');
     } else if (!/[A-Z]/.test(password)) {
       setReError('Password should contain at least one capital letter');
+      return
     } else if (!/[@#$%^&+=!]/.test(password)) {
       setReError('Password should contain at least one special character');
+      return
     }
 
     setReError('')
@@ -36,7 +39,16 @@ const Register = () => {
       })
       .catch((error) => {
         console.log(error);
-        setReError('Login failed. Please check your Email.')
+        if (error.code === 'auth/email-already-in-use') {
+          setReError('Email is already in use. Please choose another email.');
+        } else if (error.code === 'auth/invalid-email') {
+          setReError('Invalid email address.');
+        } else if (error.code === 'auth/weak-password') {
+          setReError('Password should be at least 6 characters long.');
+        }
+        else {
+          setReError('An error occurred during registration.');
+        }
       });
   };
 
