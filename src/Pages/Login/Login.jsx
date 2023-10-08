@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const {signIn, googleSign, githubSign} = useContext(AuthContext)
     const location = useLocation()
+   
     const navigate = useNavigate()
     const [show, setShow] = useState(false)
 
@@ -29,7 +30,6 @@ const Login = () => {
         .then(result => {
             console.log(result.user);
             setSuccess('Your account is login successfully')
-
             navigate(location?.state ? location.state : '/')
         })
         .catch(error => {

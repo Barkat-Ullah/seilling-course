@@ -22,11 +22,11 @@ const AuthProvider = ({children}) => {
     }
 
     const googleSign = () => {
-        setLoader(true)
+    
         return signInWithPopup(auth, provider)
     }
     const githubSign = () => {
-        setLoader(true)
+     
         return signInWithPopup(auth, gitProvider)
     }
 
@@ -37,9 +37,10 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
    const unSubscribe = onAuthStateChanged(auth, currentUser => {
+          
             setUser(currentUser)
             setLoader(false)
-            console.log('user on ', currentUser);
+   
         })
         return () => {
             unSubscribe()

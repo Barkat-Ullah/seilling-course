@@ -11,7 +11,7 @@ const Course = ({course}) => {
     AOS.init();
   },[])
 
-    console.log(course);
+    
     const {_id, author, image, title ,price ,description, paragraph } = course
     return (
         <div  data-aos="fade-up"
