@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
-  const [reError, setReError] = useState('')
-  const [success, setSuccess] = useState('')
-  const [show, setShow] = useState(false)
+  const [reError, setReError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [show, setShow] = useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -16,38 +17,45 @@ const Register = () => {
     const name = form.get("name");
     const email = form.get("email");
     const password = form.get("password");
-    console.log("Password:", password);
-    console.log(name, email, password);
+    const photo = form.get("photo");
+    
+    console.log(name, email, password,photo );
 
     if (password.length < 6) {
-      setReError('Password should be at least 6 characters or longer');
+      setReError("Password should be at least 6 characters or longer");
     } else if (!/[A-Z]/.test(password)) {
-      setReError('Password should contain at least one capital letter');
-      return
+      setReError("Password should contain at least one capital letter");
+      return;
     } else if (!/[@#$%^&+=!]/.test(password)) {
-      setReError('Password should contain at least one special character');
-      return
+      setReError("Password should contain at least one special character");
+      return;
     }
 
-    setReError('')
-    setSuccess('')
+    setReError("");
+    setSuccess("");
 
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        setSuccess('Your account was registered!')
+        setSuccess("Your account was registered!");
+
+        updateProfile(result.user, {
+          displayName:name, photoURL:photo
+        })
+        .then(()=>{console.log('update');})
+        .catch()
       })
+
       .catch((error) => {
         console.log(error);
-        if (error.code === 'auth/email-already-in-use') {
-          setReError('Email is already in use. Please choose another email.');
-        } else if (error.code === 'auth/invalid-email') {
-          setReError('Invalid email address.');
-        } else if (error.code === 'auth/weak-password') {
-          setReError('Password should be at least 6 characters long.');
-        }
-        else {
-          setReError('An error occurred during registration.');
+        if (error.code === "auth/email-already-in-use") {
+          setReError("Email is already in use. Please choose another email.");
+        } else if (error.code === "auth/invalid-email") {
+          setReError("Invalid email address.");
+        } else if (error.code === "auth/weak-password") {
+          setReError("Password should be at least 6 characters long.");
+        } else {
+          setReError("An error occurred during registration.");
         }
       });
   };
@@ -66,22 +74,44 @@ const Register = () => {
               </a>
             </div>
 
-            {
-          reError &&
-          <div className="alert alert-error text-slate-600">
-            <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            <span>Error! {reError}</span>
-          </div>
-        }
-        {
-          success && 
-            <div className="alert alert-success">
-              <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span>{success}</span>
-            </div>
-        }
+            {reError && (
+              <div className="alert alert-error text-slate-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-current shrink-0 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>Error! {reError}</span>
+              </div>
+            )}
+            {success && (
+              <div className="alert alert-success">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-current shrink-0 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>{success}</span>
+              </div>
+            )}
 
-            <div className="relative flex items-center mt-8">
+            <div className="relative flex items-center mb-[-13px]">
               <span className="absolute">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -108,24 +138,28 @@ const Register = () => {
               />
             </div>
 
-            <div className="relative flex items-center mt-6">
-              <span className="absolute">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
+            <div className="relative flex items-center mt-8 mb-4">
+              <span className="absolute left-2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                 </svg>
               </span>
 
+              <input
+                type="text"
+                name="photo"
+                required
+                className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                placeholder="photo"
+              />
+            </div>
+
+           <div>
+           <span className="absolute mt-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </span>
               <input
                 type="email"
                 name="email"
@@ -154,16 +188,14 @@ const Register = () => {
               </span>
 
               <input
-                type={ show ? "text":"password"}
+                type={show ? "text" : "password"}
                 name="password"
                 required
                 className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-[#3BB] dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 placeholder="Password"
               />
-              <span onClick={()=>setShow(!show) } className="absolute right-2">
-                {
-                  show ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
-                }
+              <span onClick={() => setShow(!show)} className="absolute right-2">
+                {show ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
               </span>
             </div>
 
@@ -181,13 +213,7 @@ const Register = () => {
                 </p>
               </div>
             </div>
-         
-
-
           </form>
-
-
-
         </div>
       </div>
     </div>
