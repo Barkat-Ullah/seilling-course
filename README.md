@@ -1,8 +1,13 @@
-# React + Vite
+# React + Vite + Daisy ui + Tailwind css
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+website name : Educational Training Center
 
-Currently, two official plugins are available:
+live link : https://education-auth-assignment.firebaseapp.com/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Here are the some features of my project, in this project i want to show a some part such as login and registration form, and details of every courses and anyone can buy it.
+
+- someone can login and registration to this website and create an account.
+- Browse a comprehensive course catalog with detailed descriptions
+- Contact instructors directly for academic support sessions.
+- Access the website on various devices, including smartphones and tablets, for      learning on the go.
+- Responsive design for a seamless user experience on different screen sizes.
